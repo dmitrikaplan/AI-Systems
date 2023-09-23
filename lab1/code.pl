@@ -4,6 +4,7 @@ jedi('Obi-wan Kenobi').
 jedi('Yoda').
 jedi('Luke Skywalker').
 jedi('Qui-gon Jinn').
+jedi('Ahsoka Tano').
 
 %ситхи
 sith('Count Dooku').
@@ -18,6 +19,8 @@ rebels('Leia Organa').
 rebels('Lando Calrissian').
 rebels('Han Solo').
 rebels('Sabine Wren ').
+rebels('Luke Skywalker').
+rebels('Ahsoka Tano').
 
 %имперцы
 empire('Boba Fett').
@@ -25,6 +28,8 @@ empire('Bossk').
 empire('Stormtrooper').
 empire('Admiral Tarkin').
 empire('Admiral Thrawn').
+empire('Darth Vader').
+empire('Emperor').
 
 %предикат вида teacher(X, Y), означающий, что X является учителем Y
 teacher('Obi-wan Kenobi','Anakin Skywalker').
@@ -56,6 +61,6 @@ enemies(X, Y) :- (evil(X), goodness(Y)) ; (goodness(X), evil(Y)).
 %правило, которое проверяет владеет ли силой X
 force_wielder(X) :- jedi(X); sith(X).
 %правило, которое проверяет является ли X солдатом
-soldier(X) :- empire(X); rebels(X).
+soldier(X) :- empire(X), not(sith(X)); rebels(X), not(jedi(X)).
 %правило, которое проверяет является ли иронией связь X и Y
 irony(X, Y) :- teacher(X, Y), killed(X, Y).
