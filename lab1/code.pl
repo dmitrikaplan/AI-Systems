@@ -61,6 +61,6 @@ enemies(X, Y) :- (evil(X), goodness(Y)) ; (goodness(X), evil(Y)).
 %правило, которое проверяет владеет ли силой X
 force_wielder(X) :- jedi(X); sith(X).
 %правило, которое проверяет является ли X солдатом
-soldier(X) :- empire(X), not(sith(X)); rebels(X), not(jedi(X)).
+soldier(X) :- (empire(X), not(sith(X))); (rebels(X), not(jedi(X))).
 %правило, которое проверяет является ли иронией связь X и Y
 irony(X, Y) :- teacher(X, Y), killed(X, Y).
