@@ -1,0 +1,5 @@
+venv
+.idea
+graph.png
+.gitignore
+__pycache__
