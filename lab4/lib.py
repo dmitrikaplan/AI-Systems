@@ -78,23 +78,3 @@ def train_test_split(x, test_size=0.3, random_state=42):
     test_idx = idxes[:test_size]
 
     return pd.DataFrame(x[train_idx, :], columns=x_columns), pd.DataFrame(x[test_idx, :], columns=x_columns)
-
-
-def LinearRegression(x_train, x_test):
-
-    copied_x_train = x_train.copy()
-    copied_x_test = x_test.copy()
-
-    X_train = MinMaxScaler(X_train)
-    X_test = MinMaxScaler(X_test)
-    answer = []
-    coeffs =
-
-    for i in range(X_test.shape[0]):
-        tmp = 0
-        row = X_test.iloc[i].tolist()
-        row.insert(0, 1)
-        for j in range(len(coeffs)):
-            tmp += row[j] * coeffs[j]
-        answer.append(tmp)
-    return pd.DataFrame(answer).to_numpy()
