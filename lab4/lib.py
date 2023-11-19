@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.utils import shuffle
 
-from draw import draw_table
+from draw import draw_table, visualization
 
 
 # предобратока данных
@@ -77,4 +77,9 @@ def train_test_split(x, test_size=0.3, random_state=42):
     train_idx = idxes[test_size:len(x)]
     test_idx = idxes[:test_size]
 
-    return pd.DataFrame(x[train_idx, :], columns=x_columns), pd.DataFrame(x[test_idx, :], columns=x_columns)
+    train = pd.DataFrame(x[train_idx, :], columns=x_columns)
+    test = pd.DataFrame(x[test_idx, :], columns=x_columns)
+
+    return (train.drop('Performance Index', axis=1), train['Performance Index'],
+            test.drop('Performance Index', axis=1), test['Performance Index'])
+

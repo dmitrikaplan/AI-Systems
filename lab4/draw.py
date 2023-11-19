@@ -15,3 +15,10 @@ def draw_table(l):
     table.set_fontsize(7)
     fig.tight_layout()
     plt.show()
+
+
+def visualization(df):
+    df.hist(bins=60, figsize=[30, 20])
+    plt.show()
+
+
