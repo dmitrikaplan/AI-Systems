@@ -1,3 +1,4 @@
+import numpy as np
 from matplotlib import pyplot as plt
 
 
@@ -17,15 +18,12 @@ def draw_table(l):
     plt.show()
 
 
-def visualization(df):
-    df.hist(bins=120, figsize=[30, 20])
+def draw_confusion_matrix(ax, matrix):
+    ax.matshow(matrix)
+    ax.set_xlabel('True class')
+    ax.set_ylabel('Predicted class')
+
+    for (i, j), z in np.ndenumerate(matrix):
+        ax.text(j, i, str(int(z)), ha='center', va='center')
+
     plt.show()
-
-
-def correlation(df):
-    plt.matshow(df.corr())
-    plt.yticks(range(len(df.columns)), df.columns)
-    plt.colorbar()
-    plt.show()
-
-

@@ -1,6 +1,6 @@
 import pandas as pd
 
-from draw import visualization
+from draw import visualization, correlation
 from lib import preprocessing, statistic, train_test_split
 from LinearRegression import linearRegression
 
@@ -14,15 +14,17 @@ def main():
 
     x_train, y_train, x_test, y_test = train_test_split(df, random_state=42)
 
+    correlation(df)
+
     regressions = [(
         'Регрессия по всем колонкам', linearRegression(x_train, y_train, x_train.columns)
     ), (
-        'Регрессия по Extracurricular Activities,Sleep Hours',
-        linearRegression(x_train, y_train, ['Extracurricular Activities', 'Sleep Hours'])
+        'Регрессия по Hours Studied',
+        linearRegression(x_train, y_train, ['Hours Studied'])
     ),
         (
-            'Регрессия по Hours Studied, Sample Question Papers Practiced',
-            linearRegression(x_train, y_train, ['Hours Studied', 'Sample Question Papers Practiced'])
+            'Регрессия по Previous Scores',
+            linearRegression(x_train, y_train, ['Previous Scores'])
         )
     ]
 
