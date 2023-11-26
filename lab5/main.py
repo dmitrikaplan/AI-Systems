@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from lib import preprocessing, visualization,  statistic
+from lib import preprocessing, visualization, statistic
 from model import fixed_set_of_features, random_set_of_features
 
 

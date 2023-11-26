@@ -8,7 +8,7 @@ from LinearRegression import linearRegression
 def main():
     df = pd.read_csv('Student_Performance.csv')
 
-    # statistic(df)
+    statistic(df)
     preprocessing(df)
     visualization(df)
 
@@ -35,9 +35,6 @@ def main():
     print('Имя лучшей регрессии: ', name)
     print('Сумма квадратов отклонений лучшей регрессии: ', sumOfSquares)
     print('Время лучшей регрессия: ', time, 'секунд')
-
-    # print(df.describe(include='all'))  ## показывает информацию о каждом поле датасета
-    # print(df.info())  # вывод информацию о количестве non-null значений
 
 
 if __name__ == '__main__':

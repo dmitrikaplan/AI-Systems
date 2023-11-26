@@ -8,6 +8,8 @@ def determinationCoeff(y, predict_y):
     rss = np.sum(np.square(y - predict_y))
     tss = np.sum(np.square(y - mean_y))
 
+
+
     return 1 - rss / tss
 
 
@@ -34,6 +36,6 @@ def linearRegression(x, y, columns):
     beta = train(x, y, columns)
     predict_y = predict(x, beta, columns)
     sum = sumOfSquares(y, predict_y)
-   # print("Коэффициент детерминации: ", determinationCoeff(y, predict_y))
+    print("Коэффициент детерминации: ", determinationCoeff(y, predict_y))
     #print("Сумма квадратов: ", sum)
     return time.time() - start_time, predict_y, sum

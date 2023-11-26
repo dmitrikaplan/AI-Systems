@@ -36,14 +36,14 @@ def normalize(df):
         df[column] = normalized_list
 
 
-def train_test_split(x, test_size=0.3, random_state=42):
+def train_test_split(x, random_state=42, test_size=0.3):
     x_columns = x.columns
-    x = x.to_numpy()
+    x = x.to_numpy(copy=True)
     idxes = np.array(range(len(x)))
 
     test_size = round(test_size * len(x))
 
-    shuffle(idxes, random_state=random_state)
+    np.random.shuffle(idxes)
 
     train_idx = idxes[test_size:len(x)]
     test_idx = idxes[:test_size]
@@ -79,7 +79,7 @@ def confusion_matrix(y_predict, y_train, n):
     matrix = np.zeros((n, n))
 
     for predict, train in zip(y_predict, y_train):
-        matrix[int(predict), int(train)] += 1
+        matrix[int(predict * 2), int(train * 2)] += 1
 
     return matrix
 
